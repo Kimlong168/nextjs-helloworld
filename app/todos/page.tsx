@@ -1,5 +1,5 @@
 import { getTodos } from '@/lib/api';
-import ClientList from './_components/client-list';
+import TodoList from './_components/todo-list';
 
 export default async function TodosPage() {
   const todos = await getTodos();
@@ -7,7 +7,7 @@ export default async function TodosPage() {
   return (
     <div className="p-6 max-w-xl mx-auto">
       <h1 className="text-2xl font-bold mb-4">Todo List</h1>
-      <ClientList initialTodos={todos} />
+      <TodoList initialTodos={todos} />
     </div>
   );
 }
