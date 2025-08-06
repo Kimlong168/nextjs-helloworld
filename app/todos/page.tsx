@@ -6,7 +6,7 @@ export default async function TodosPage() {
 
   return (
     <div className="p-6 max-w-xl mx-auto">
-      <h1 className="text-2xl font-bold mb-4">📝 Todo List</h1>
+      <h1 className="text-2xl font-bold mb-4">Todo List</h1>
       <ClientList initialTodos={todos} />
     </div>
   );
