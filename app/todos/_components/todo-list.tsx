@@ -9,7 +9,6 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Todo } from '@/types/todo';
 import { createTodo, updateTodo, deleteTodo } from '@/lib/api';
-import { TodoSkeleton } from './todo-skeleton';
 
 interface ClientListProps {
   initialTodos: Todo[];
@@ -21,7 +20,6 @@ export default function TodoList({ initialTodos }: ClientListProps) {
   const [isAdding, setIsAdding] = useState(false);
   const [updatingIds, setUpdatingIds] = useState<Set<number>>(new Set());
   const [deletingIds, setDeletingIds] = useState<Set<number>>(new Set());
-  const [isLoading, setIsLoading] = useState(false);
 
   const handleAdd = async () => {
     if (!newTodo.trim() || isAdding) return;
@@ -83,9 +81,6 @@ export default function TodoList({ initialTodos }: ClientListProps) {
   const completedCount = todos.filter(todo => todo.completed).length;
   const totalCount = todos.length;
 
-  if (isLoading) {
-    return <TodoSkeleton />;
-  }
 
   return (
     <Card className="w-full max-w-2xl mx-auto shadow-lg">
